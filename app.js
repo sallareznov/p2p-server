@@ -1,32 +1,23 @@
 var express = require('express');
 var app = express();
-var chokidar = require('chokidar');
-
-chokidar.watch('model/data/', {ignored: /[\/\\]\./}).on('all', function(event, path) {
-  console.log(event, path);
-});
-
-var watcher = chokidar.watch('file, dir, glob, or array', {
-  ignored: /[\/\\]\./,
-  persistent: true
-});
+var model = require('./model/model');
 
 // Something to use when events are received.
 var log = console.log.bind(console);
 
-// Add event listeners.
-watcher.on('add', function(path) {
-  log('File', path, 'has been added');
-});
-
 app.get('/', function (req, res) {
-  res.send('Hello World!');
+  var username = process.argv[2];
+  var watchedDirectory = process.argv[3];
+  // TODO handle validity of arguments
+  var ipAddress = req.header('x-forwarded-for') || req.connection.remoteAddress;
+  model.setWatchedDirectory(watchedDirectory);
+  res.render('index', { username : username, ip : ipAddress });
 });
 
 app.set('views', './views');
 app.set('view engine', 'jade');
 
-var server = app.listen(8080, function () {
+var server = app.listen(8000, function () {
   var host = server.address().address;
   var port = server.address().port;
 
