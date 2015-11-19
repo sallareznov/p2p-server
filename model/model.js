@@ -1,6 +1,7 @@
 var chokidar = require('chokidar');
 var events = require('events');
 var watcher = null;
+var EventEmitter = events.EventEmitter;
 
 function setWatchedDirectory(watchedDirectory) {
   var chokidarArguments = { ignored : /[\/\\]\./, persistent : true };
