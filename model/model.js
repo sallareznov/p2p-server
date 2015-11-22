@@ -1,7 +1,13 @@
 var chokidar = require('chokidar');
 var events = require('events');
+var repository = require('./repository');
+var path = require('path');
 var watcher = null;
 var EventEmitter = events.EventEmitter;
+
+function getFiles() {
+  return repository.getFiles();
+}
 
 function setWatchedDirectory(watchedDirectory) {
   var chokidarArguments = { ignored : /[\/\\]\./, persistent : true };
@@ -10,25 +16,28 @@ function setWatchedDirectory(watchedDirectory) {
 }
 
 function initWatcherEvents() {
-  watcher.on('add', function(path) {
-    console.log('File ' + path + ' has been added');
+  watcher.on('add', function(filepath) {
+    console.log('File ' + filepath + ' has been added');
+    repository.addFile(path.relative(process.argv[3], filepath));
   });
-  watcher.on('change', function(path) {
-    console.log('File ' + path + ' has been changed');
+  watcher.on('change', function(filepath) {
+    console.log('File ' + filepath + ' has been changed');
   });
-  watcher.on('unlink', function(path) {
-    console.log('File ' + path + ' has been removed');
+  watcher.on('unlink', function(filepath) {
+    console.log('File ' + filepath + ' has been removed');
+    repository.removeFile(path.relative(process.argv[3], filepath));
   });
-  watcher.on('addDir', function(path) {
-    console.log('Directory ' + path + ' has been added');
+  watcher.on('addDir', function(filepath) {
+    console.log('Directory ' + filepath + ' has been added');
   });
-  watcher.on('unlinkDir', function(path) {
-    console.log('Directory ' + path + ' has been added');
+  watcher.on('unlinkDir', function(filepath) {
+    console.log('Directory ' + filepath + ' has been added');
   });
-  watcher.on('unlink', function(path) {
+  watcher.on('unlink', function(filepath) {
     console.log('Error happened : ' + error)
   });
 }
 
+exports.getFiles = getFiles;
 exports.setWatchedDirectory = setWatchedDirectory;
 exports.initWatcherEvents = initWatcherEvents;
