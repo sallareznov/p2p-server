@@ -1,12 +1,13 @@
-var express = require('express');
-var router = express.Router();
+var fs = require('fs');
+var path = require('path');
+var walk = require('fs-walk');
+var model = require('../model/model');
 
-router.get('/', function (req, res) {
+function list(req, res) {
   var username = process.argv[2];
   var watchedDirectory = process.argv[3];
-  var ipAddress = req.header('x-forwarded-for') || req.connection.remoteAddress;
-  model.setWatchedDirectory(watchedDirectory);
-  res.render('index', { username : username, ip : ipAddress });
-});
+  var dirname = path.join(__dirname, '..', watchedDirectory);
+  res.render('index', { username : username, content : model.getFiles() });
+}
 
-module.exports = router;
+module.exports = list;

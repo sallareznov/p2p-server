@@ -1,17 +1,8 @@
-var express = require('express');
-var router = express.Router();
+var path = require('path');
 
-router.get('/download/:filename', function(req, res) {
-  var filename = req.params.filename;
-  var options = {
-    root: __dirname + '/model/data',
-    dotfiles: 'deny',
-    headers: {
-        'x-timestamp': Date.now(),
-        'x-sent': true
-    }
-  };
-  res.sendFile(filename, options);
-});
+function download(req, res) {
+  var filename = path.join(__dirname, '..', process.argv[3], req.params.filename);
+  res.download(filename);
+}
 
-module.exports = router;
+module.exports = download;
