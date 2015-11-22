@@ -13,7 +13,7 @@ Le but de cet atelier est de **réaliser un serveur Node FROM SCRATCH**. Ce serv
 La base de données SQLite ne contiendra qu'une seule table qui respectera le schéma simple suivant :
 
 | Nom de la colonne | Type de la colonne |
-| --------------- | ---- |
+|------------------ |------------------- |
 | FILEID | TEXT |
 | FILEPATH | TEXT |
 
