@@ -1,5 +1,8 @@
 extends layout
 
 block content
-  h1!= username + "'s server (" + ipAddress + ")"
-  p Welcome to #{username}
+  h1!= username + "'s file hosting (" + ipAddress + ")"
+  ul
+  each filename in content
+      li
+        a(href="/view/" + filename) #{filename}
