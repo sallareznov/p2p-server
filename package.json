@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon app.js Salla data",
+    "start": "./node_modules/nodemon/bin/nodemon.js app.js Salla data",
     "test": "./node_modules/mocha/bin/mocha test/*"
   },
   "dependencies": {
