@@ -1,3 +1,3 @@
 # Atelier NODE.JS & EXPRESS
 
-Voir wiki (https://github.com/sallareznov/p2p-server/wiki).
+Voir wiki (https://github.com/sallareznov/p2p-wiki/wiki).
