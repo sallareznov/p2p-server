@@ -1,9 +1,7 @@
 var chokidar = require('chokidar');
-var events = require('events');
 var repository = require('./repository');
 var path = require('path');
 var watcher = null;
-var EventEmitter = events.EventEmitter;
 
 function getFiles() {
   return repository.getFiles();

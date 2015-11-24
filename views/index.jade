@@ -2,8 +2,18 @@ extends layout
 
 block content
   div
-    h1!= username + "'s file hosting (" + ipAddress + ")"
+    h1!= username + "'s file hosting"
     ul.list-group
     each filename in content
       li.list-group-item
-        a(href="/view/" + filename) #{filename}
+        span.left
+          a(href="/view/" + filename) #{filename}
+        span.right
+          button.btn.btn-info(type='button')
+            a.buttonLink(href="/view/" + filename)
+              span.glyphicon.glyphicon-search  View
+          #divider
+          button.btn.btn-info(type='button')
+            a.buttonLink(href="/download/" + filename)
+              span.glyphicon.glyphicon-download  Download
+        

@@ -9,8 +9,32 @@ a {
 
 .main {
   width: 80%;
-  background-image: url('../img/panda_bg.jpg');
+  background-image: url('../img/happyPanda.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: right;
+}
+
+li {
+  display: table;
+}
+span {
+  display: table-cell;
+}
+.left {
+  text-align: left;
+  width: 600px;
+}
+.right {
+  text-align: right;
+}
+
+.buttonLink {
+  color: inherit;
+}
+
+#divider {
+    width:5px;
+    height:auto;
+    display:inline-block;
 }
