@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+.main {
+  width: 80%;
+  background-image: url('../img/panda_bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right;
+}

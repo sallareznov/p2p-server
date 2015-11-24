@@ -1,8 +1,9 @@
 extends layout
 
 block content
-  h1!= username + "'s file hosting (" + ipAddress + ")"
-  ul
-  each filename in content
-      li
+  div
+    h1!= username + "'s file hosting (" + ipAddress + ")"
+    ul.list-group
+    each filename in content
+      li.list-group-item
         a(href="/view/" + filename) #{filename}
