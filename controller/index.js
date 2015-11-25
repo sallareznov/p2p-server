@@ -14,8 +14,8 @@ router.use(function(req, res, next) {
 router.get('/view/:filename(*)', view);
 router.get('/download/:filename(*)', download);
 router.get('/test', test);
-router.get('/', list);
 router.get('/server/isalive', server);
+router.get('/', list);
 
 router.use(function(req, res, next) {
   var err = new Error('Not Found');

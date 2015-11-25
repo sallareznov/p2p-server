@@ -8,7 +8,7 @@ a {
 }
 
 .main {
-  width: 80%;
+  width: 77%;
   background-image: url('../img/happyPanda.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -23,8 +23,9 @@ span {
 }
 .left {
   text-align: left;
-  width: 600px;
+  width: 84%;
 }
+
 .right {
   text-align: right;
 }

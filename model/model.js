@@ -32,7 +32,7 @@ function initWatcherEvents() {
     console.log('Directory ' + filepath + ' has been added');
   });
   watcher.on('unlink', function(filepath) {
-    console.log('Error happened : ' + error)
+    console.log('Error happened : ' + error);
   });
 }
 

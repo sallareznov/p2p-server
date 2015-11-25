@@ -1,6 +1,4 @@
-var fs = require('fs');
 var path = require('path');
-var walk = require('fs-walk');
 var model = require('../model/model');
 
 function list(req, res) {
