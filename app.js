@@ -2,7 +2,7 @@ var express = require('express');
 var favicon = require('serve-favicon');
 var path = require('path');
 var model = require('./model/model');
-var index = require('./controller/index');
+var controller = require('./controller/controller');
 
 var app = express();
 app.set('views', './views');
@@ -20,4 +20,4 @@ var server = app.listen(8000, '0.0.0.0', function () {
   model.setWatchedDirectory(watchedDirectory);
 });
 
-app.use('/', index);
+app.use('/', controller);
